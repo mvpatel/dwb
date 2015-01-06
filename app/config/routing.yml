@@ -1,0 +1,5 @@
+acme_main:
+    resource: "@AcmeMainBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
