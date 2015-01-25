@@ -1,1 +1,14 @@
-Hello!
+{% extends '::base.html.twig' %}
+
+
+{% block stylesheets2 %}
+    <link rel="stylesheet" href="{{  asset('bundles/acmemain/css/default.css')  }}">
+{% endblock %}
+
+{% block body -%}
+    <div class="centre">
+        <a href="{{ path('acme_main_intropage') }}">
+            Enter Site
+        </a>
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+funeral:
+    path:     /
+    defaults: { _controller: "AcmeMainBundle:funeral:index" }
+
+funeral_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeMainBundle:funeral:show" }
+
+funeral_new:
+    path:     /new
+    defaults: { _controller: "AcmeMainBundle:funeral:new" }
+
+funeral_create:
+    path:     /create
+    defaults: { _controller: "AcmeMainBundle:funeral:create" }
+    requirements: { _method: post }
+
+funeral_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeMainBundle:funeral:edit" }
+
+funeral_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeMainBundle:funeral:update" }
+    requirements: { _method: post|put }
+
+funeral_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeMainBundle:funeral:delete" }
+    requirements: { _method: post|delete }

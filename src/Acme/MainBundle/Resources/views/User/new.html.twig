@@ -1,0 +1,64 @@
+{% extends '::base.html.twig' %}
+
+
+{% block stylesheets2 %}
+    <link rel="stylesheet" href="{{  asset('bundles/acmemain/css/default.css')  }}">
+    <link rel="stylesheet" href="{{  asset('bundles/acmemain/css/icon.css')  }}">
+{% endblock %}
+
+{% block body -%}
+    <div class="content">
+        <div class="text">
+            <p>
+                <b>Introduction</b>
+
+            </p>
+            <p>
+                How many of us think about the music we’d like played at our own funeral, how we 
+
+                might like to arrive, who we might like to invite? Do you ever consider if you’d like a 
+
+                sombre, thoughtful ceremony, or a full-on party? Would you like to go in an eco-friendly 
+
+                cardboard coffin, or the best casket money can buy. Do your loved ones know if you’d 
+
+                prefer to be buried or cremated and, following which, your preferred final resting place? 
+            </p>
+
+
+
+        </div>
+
+        <div class="form">
+            <h3>User creation</h3>
+
+                        {{ form(form) }}
+{#            {{ form_start(form, {'action': path('user_create')}) }}
+            {{ form_row(form.firstName) }}
+            {{ form_row(form.middleName) }}
+            {{ form_row(form.surname) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.password) }}
+            {{ form_row(form.dob) }}
+            {{ form_row(form.birthPlace) }}
+            {{ form_row(form.favouriteCity) }}
+            {{ form_row(form.isPublished) }}
+            <hr>
+            {{ form_row(form.phone) }}
+            <hr>
+            {{ form_row(form.address) }}
+            <hr>
+            {{ form_row(form.submit) }}#}
+
+
+            <ul class="record_actions">
+                <li>
+                    <a href="{{ path('user') }}">
+                        Back to the list
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+

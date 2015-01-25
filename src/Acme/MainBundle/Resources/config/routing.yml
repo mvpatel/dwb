@@ -1,3 +1,67 @@
+acme_main_connecteduser:
+    resource: "@AcmeMainBundle/Resources/config/routing/connecteduser.yml"
+    prefix:   /connecteduser
+
+acme_main_user:
+    resource: "@AcmeMainBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+acme_main_casket:
+    resource: "@AcmeMainBundle/Resources/config/routing/casket.yml"
+    prefix:   /casket
+
+acme_main_pallbearers:
+    resource: "@AcmeMainBundle/Resources/config/routing/pallbearers.yml"
+    prefix:   /pallbearers
+
+acme_main_arrivalfuneral:
+    resource: "@AcmeMainBundle/Resources/config/routing/arrivalfuneral.yml"
+    prefix:   /arrivalfuneral
+
+acme_main_funeral:
+    resource: "@AcmeMainBundle/Resources/config/routing/funeral.yml"
+    prefix:   /funeral
+
+acme_main_support:
+    resource: "@AcmeMainBundle/Resources/config/routing/support.yml"
+    prefix:   /support
+
+acme_main_connectedusertype:
+    resource: "@AcmeMainBundle/Resources/config/routing/connectedusertype.yml"
+    prefix:   /connectedusertype
+
+acme_main_address:
+    resource: "@AcmeMainBundle/Resources/config/routing/address.yml"
+    prefix:   /address
+
+acme_main_phone:
+    resource: "@AcmeMainBundle/Resources/config/routing/phone.yml"
+    prefix:   /phone
+
 acme_main_homepage:
     path:     /
     defaults: { _controller: AcmeMainBundle:Default:index }
+    
+acme_main_intropage:
+    path:     /intro
+    defaults: { _controller: AcmeMainBundle:Default:intro } 
+    
+acme_main_about:
+    path:     /about
+    defaults: { _controller: AcmeMainBundle:Default:about }
+    
+
+login_route:
+    path:  /login
+    defaults: { _controller: AcmeMainBundle:Security:login }
+
+login_check:
+    path:  /login_check
+    defaults: { _controller: AcmeMainBundle:Security:loginCheck }
+
+logout:
+    path:  /logout
+    defaults: { _controller: AcmeMainBundle:Security:logout }
+admin:
+    path:  /admin
+    defaults: { _controller: AcmeMainBundle:Default:admin }

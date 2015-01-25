@@ -1,0 +1,30 @@
+casket:
+    path:     /
+    defaults: { _controller: "AcmeMainBundle:Casket:index" }
+
+casket_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeMainBundle:Casket:show" }
+
+casket_new:
+    path:     /new
+    defaults: { _controller: "AcmeMainBundle:Casket:new" }
+
+casket_create:
+    path:     /create
+    defaults: { _controller: "AcmeMainBundle:Casket:create" }
+    requirements: { _method: post }
+
+casket_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeMainBundle:Casket:edit" }
+
+casket_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeMainBundle:Casket:update" }
+    requirements: { _method: post|put }
+
+casket_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeMainBundle:Casket:delete" }
+    requirements: { _method: post|delete }

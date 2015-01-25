@@ -1,0 +1,30 @@
+pallbearers:
+    path:     /
+    defaults: { _controller: "AcmeMainBundle:Pallbearers:index" }
+
+pallbearers_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeMainBundle:Pallbearers:show" }
+
+pallbearers_new:
+    path:     /new
+    defaults: { _controller: "AcmeMainBundle:Pallbearers:new" }
+
+pallbearers_create:
+    path:     /create
+    defaults: { _controller: "AcmeMainBundle:Pallbearers:create" }
+    requirements: { _method: post }
+
+pallbearers_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeMainBundle:Pallbearers:edit" }
+
+pallbearers_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeMainBundle:Pallbearers:update" }
+    requirements: { _method: post|put }
+
+pallbearers_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeMainBundle:Pallbearers:delete" }
+    requirements: { _method: post|delete }

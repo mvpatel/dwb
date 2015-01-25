@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+
+
+{% block stylesheets2 %}
+    <link rel="stylesheet" href="{{  asset('bundles/acmemain/css/default.css')  }}">
+    <link rel="stylesheet" href="{{  asset('bundles/acmemain/css/intro.css')  }}">
+    <link rel="stylesheet" href="{{  asset('bundles/acmemain/css/icon.css')  }}">
+{% endblock %}
+
+{% block body -%}
+    <div class="content">
+        <div class="text">
+            <p>
+                <b>DontWearBlack.com</b> is a safe and secure depositary for your most important wishes
+
+                information to be made available to your loved ones, trusted friend or estate executor after 
+
+                your death.
+            </p>
+            <p>
+                <b>DontWearBlack.com</b> is not designed to replace a professionally drafted Will, but is 
+
+                designed to ensure your loved ones know what your funeral, remembrance and final wishes 
+
+                are. DWB also ensures important information is shared with the right people immediately 
+
+                after your passing.
+            </p>
+        </div>
+    <div class="intro_centre">
+        <a href="{{ path('acme_main_about') }}">
+            How does DontWearBlack.com work?
+        </a>
+        <a href="{{ path('user_new') }}">
+            New User Registration
+        </a>
+        <a href="{{ path('acme_main_intropage') }}">
+            Current user - Amend Information
+        </a>
+        <a href="{{ path('acme_main_intropage') }}">
+            Access an Account
+        </a>
+    </div>
+    </div>
+{% endblock %}

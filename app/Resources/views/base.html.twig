@@ -7,29 +7,29 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="{{  asset('bundles/acmemain/css/main.css')  }}">
+            {% block stylesheets2 %}
+{#                For add extra css files#}
+            {% endblock %}
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        <div class="container">
-            <div class="header">
-                <ul class="nav nav-pills pull-right">
-                    <li class="active"><a href="{{  path('blog')  }}">Home</a></li>
-                    <li><a href="#">RSS Feed</a></li>
-                </ul>
-                <h3 class="text-muted">My Blog</h3>
-                <div class="clearfix"></div>
-            </div>
-
-            <br />
-
-            {% block body %}{% endblock %}
-
-            <div class="footer text-center text-muted">
-                <br />
-                <p>&copy; My Blog 2014</p>
-            </div>
+        <div id="sidebar" class="logo">
+            {% block sidebar %}
+                {% image 'dwb_logo.jpg' %}
+                <img src="{{  asset('bundles/acmemain/images/default/dwb_logo.jpg')  }}" alt="DWB" />
+                {% endimage %}
+                </br>
+                <h7>Your final wishes – safe and secure for those you leave behind…</h7>
+                <h7><hr></h7>
+                {% endblock %}
         </div>
+
+        <div id="content">
         {% block javascripts %}{% endblock %}
-    </body>
+
+    {% block body %}{% endblock %}
+</div>
+</body>
 </html>

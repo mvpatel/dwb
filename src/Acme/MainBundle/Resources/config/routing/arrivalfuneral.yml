@@ -1,0 +1,30 @@
+arrivalfuneral:
+    path:     /
+    defaults: { _controller: "AcmeMainBundle:ArrivalFuneral:index" }
+
+arrivalfuneral_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeMainBundle:ArrivalFuneral:show" }
+
+arrivalfuneral_new:
+    path:     /new
+    defaults: { _controller: "AcmeMainBundle:ArrivalFuneral:new" }
+
+arrivalfuneral_create:
+    path:     /create
+    defaults: { _controller: "AcmeMainBundle:ArrivalFuneral:create" }
+    requirements: { _method: post }
+
+arrivalfuneral_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeMainBundle:ArrivalFuneral:edit" }
+
+arrivalfuneral_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeMainBundle:ArrivalFuneral:update" }
+    requirements: { _method: post|put }
+
+arrivalfuneral_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeMainBundle:ArrivalFuneral:delete" }
+    requirements: { _method: post|delete }

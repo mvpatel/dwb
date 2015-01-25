@@ -1,0 +1,58 @@
+<?php
+
+namespace Acme\MainBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Phone
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Acme\MainBundle\Entity\PhoneRepository")
+ */
+class Phone
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="mobile", type="string", length=12)
+     */
+    private $mobile;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="home_phone", type="string", length=12)
+     */
+    private $homePhone;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="office_phone", type="string", length=12)
+     */
+    private $officePhone;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+}

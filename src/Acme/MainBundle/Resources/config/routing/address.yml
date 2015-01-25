@@ -1,0 +1,30 @@
+address:
+    path:     /
+    defaults: { _controller: "AcmeMainBundle:Address:index" }
+
+address_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeMainBundle:Address:show" }
+
+address_new:
+    path:     /new
+    defaults: { _controller: "AcmeMainBundle:Address:new" }
+
+address_create:
+    path:     /create
+    defaults: { _controller: "AcmeMainBundle:Address:create" }
+    requirements: { _method: post }
+
+address_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeMainBundle:Address:edit" }
+
+address_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeMainBundle:Address:update" }
+    requirements: { _method: post|put }
+
+address_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeMainBundle:Address:delete" }
+    requirements: { _method: post|delete }

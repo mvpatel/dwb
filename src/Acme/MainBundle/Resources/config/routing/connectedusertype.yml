@@ -1,0 +1,30 @@
+connectedusertype:
+    path:     /
+    defaults: { _controller: "AcmeMainBundle:ConnectedUserType:index" }
+
+connectedusertype_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeMainBundle:ConnectedUserType:show" }
+
+connectedusertype_new:
+    path:     /new
+    defaults: { _controller: "AcmeMainBundle:ConnectedUserType:new" }
+
+connectedusertype_create:
+    path:     /create
+    defaults: { _controller: "AcmeMainBundle:ConnectedUserType:create" }
+    requirements: { _method: post }
+
+connectedusertype_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeMainBundle:ConnectedUserType:edit" }
+
+connectedusertype_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeMainBundle:ConnectedUserType:update" }
+    requirements: { _method: post|put }
+
+connectedusertype_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeMainBundle:ConnectedUserType:delete" }
+    requirements: { _method: post|delete }

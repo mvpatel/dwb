@@ -1,0 +1,30 @@
+support:
+    path:     /
+    defaults: { _controller: "AcmeMainBundle:Support:index" }
+
+support_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeMainBundle:Support:show" }
+
+support_new:
+    path:     /new
+    defaults: { _controller: "AcmeMainBundle:Support:new" }
+
+support_create:
+    path:     /create
+    defaults: { _controller: "AcmeMainBundle:Support:create" }
+    requirements: { _method: post }
+
+support_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeMainBundle:Support:edit" }
+
+support_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeMainBundle:Support:update" }
+    requirements: { _method: post|put }
+
+support_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeMainBundle:Support:delete" }
+    requirements: { _method: post|delete }
