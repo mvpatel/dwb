@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * funeral
  *
- * @ORM\Table()
+ * @ORM\Table(name="funeral")
  * @ORM\Entity(repositoryClass="Acme\MainBundle\Entity\funeralRepository")
  */
 class funeral

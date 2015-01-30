@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ConnectedUserType
  *
- * @ORM\Table()
+ * @ORM\Table(name="connectedusertype")
  * @ORM\Entity(repositoryClass="Acme\MainBundle\Entity\ConnectedUserTypeRepository")
  */
 class ConnectedUserType

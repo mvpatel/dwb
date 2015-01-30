@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Support
  *
- * @ORM\Table()
+ * @ORM\Table(name="support")
  * @ORM\Entity(repositoryClass="Acme\MainBundle\Entity\SupportRepository")
  */
 class Support

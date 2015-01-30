@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Casket
  *
- * @ORM\Table()
+ * @ORM\Table(name="casket")
  * @ORM\Entity(repositoryClass="Acme\MainBundle\Entity\CasketRepository")
  */
 class Casket
