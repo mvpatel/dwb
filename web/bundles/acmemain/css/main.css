@@ -1,0 +1,39 @@
+body{
+
+}
+
+.logo img{
+    width: 70px; 
+}
+
+.logo h7{
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+label{
+    width: 140px;
+}
+
+.form{
+    background-color: white;
+    padding: 20px;
+}
+
+.form h3{
+    background-color: #08C;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.float_left{
+    float: left;
+}
+
+input[type='text'],input[type='password'],input[type='select']
+{
+    width: 288px;
+    height: 40px;
+    margin: 5px 0 5px 0;
+}
+
