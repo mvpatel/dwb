@@ -15,6 +15,8 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface {
     public function load(ObjectManager $manager) {
         for ($i = 1; $i <= 100; $i++) {
             $user = new User();
+            $user->setUsername('username_' . $i);
+            $user->setRole('ROLE_' . rand(0,3));
             $user->setFirstName('First Name ' . $i);
             $user->setMiddleName('Middle Name ' . $i);
             $user->setSurname('Surname ' . $i);
@@ -30,7 +32,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface {
             $user->setDob($birthdate);
             $user->setFavouriteCity('Favourite City ' . $i);
             $user->setGuestService('Guest Service ' . $i);
-            $user->setIsPublished(rand(0, 1));
+            $user->setIsActive(1);
 
             $modifydate = new \DateTime('now');
             $modifydate->modify('-'.rand(0,3).' month');

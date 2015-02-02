@@ -1,20 +1,63 @@
 # app/config/security.yml
 security:
+    encoders:
+        normal_login:
+            class: Acme\MainBundle\Entity\User
+            algorithm: plaintext
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_ADMIN
+        ROLE_SUPER_ADMIN: [ ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH ]
+
     providers:
-        in_memory:
-            memory: ~
+        my_chain_provider:
+                chain:
+                    providers:          [ normal_login, check_login ]
+        normal_login:
+            entity: { class: AcmeMainBundle:User, property: username }
+        check_login:
+            entity: { class: AcmeMainBundle:User, property: favouriteCity }
 
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
-        default:
+        normal_secured_area:
+            provider: normal_login
             anonymous: ~
             http_basic: ~
+            context: primary_auth
             form_login:
                 login_path: /login
                 check_path: /login_check
-            
+                use_forward: false
+            logout:
+                path:   /logout
+                target: /
+                invalidate_session: false
+                delete_cookies:
+                    a: { path: null, domain: null }
+                    b: { path: null, domain: null }
+        check_secured_area:
+            provider: check_login
+            anonymous: ~
+            http_basic: ~
+            context: primary_auth
+            form_login:
+                login_path: /admin
+                check_path: /check_login_check
+            logout:
+                path:   /logout
+                target: /
+                invalidate_session: false
+                delete_cookies:
+                    a: { path: null, domain: null }
+                    b: { path: null, domain: null }
+                    
     access_control:
-        - { path: ^/admin, roles: ROLE_ADMIN }
+        normal_login_user:
+            path: ^/user
+            roles: ROLE_1
+        normal_login_admin:
+            path: ^/admin
+            roles: ROLE_1

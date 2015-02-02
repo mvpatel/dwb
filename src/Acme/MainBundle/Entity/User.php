@@ -4,6 +4,7 @@ namespace Acme\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -11,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="Acme\MainBundle\Entity\UserRepository")
  */
-class User {
+class User implements UserInterface, \Serializable {
 
     /**
      * @var integer
@@ -68,6 +69,20 @@ class User {
     /**
      * @var string
      *
+     * @ORM\Column(name="username", type="string", length=50)
+     */
+    private $username;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="role", type="string", length=50)
+     */
+    private $role;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="middle_name", type="string", length=50)
      */
     private $middleName;
@@ -94,6 +109,11 @@ class User {
     private $password;
 
     /**
+     * @ORM\Column(name="is_active", type="boolean")
+     */
+    private $isActive;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="dob", type="date")
@@ -115,13 +135,6 @@ class User {
     private $favouriteCity;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="is_published", type="boolean")
-     */
-    private $isPublished;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="guest_service", type="text")
@@ -136,7 +149,7 @@ class User {
     private $modifiedDate;
 
     public function __construct() {
-        $this->isPublished = true;
+        $this->isActive = true;
         $this->guestService = 'guest_service';
     }
 
@@ -298,27 +311,6 @@ class User {
      */
     public function getFavouriteCity() {
         return $this->favouriteCity;
-    }
-
-    /**
-     * Set isPublished
-     *
-     * @param boolean $isPublished
-     * @return User
-     */
-    public function setIsPublished($isPublished) {
-        $this->isPublished = $isPublished;
-
-        return $this;
-    }
-
-    /**
-     * Get isPublished
-     *
-     * @return boolean 
-     */
-    public function getIsPublished() {
-        return $this->isPublished;
     }
 
     /**
@@ -489,15 +481,13 @@ class User {
         return $this->casket;
     }
 
-
     /**
      * Set password
      *
      * @param string $password
      * @return User
      */
-    public function setPassword($password)
-    {
+    public function setPassword($password) {
         $this->password = $password;
 
         return $this;
@@ -508,8 +498,130 @@ class User {
      *
      * @return string 
      */
-    public function getPassword()
-    {
+    public function getPassword() {
         return $this->password;
+    }
+
+    /**
+     * Set username
+     *
+     * @param string $username
+     * @return User
+     */
+    public function setUsername($username) {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string 
+     */
+    public function getUsername() {
+        return $this->username;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getSalt()
+    {
+        // you *may* need a real salt depending on your encoder
+        // see section on salt below
+        return null;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getRoles()
+    {
+        return array($this->role);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function eraseCredentials()
+    {
+    }
+
+    /**
+     * @see \Serializable::serialize()
+     */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->password,
+            // see section on salt below
+            // $this->salt,
+        ));
+    }
+
+    /**
+     * @see \Serializable::unserialize()
+     */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->password,
+            // see section on salt below
+            // $this->salt
+        ) = unserialize($serialized);
+    }
+
+    /**
+     * Set isActive
+     *
+     * @param boolean $isActive
+     * @return User
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get isActive
+     *
+     * @return boolean 
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
+    
+    
+    
+    
+    /**
+     * Set role
+     *
+     * @param string $role
+     * @return User
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return string 
+     */
+    public function getRole()
+    {
+        return $this->role;
     }
 }

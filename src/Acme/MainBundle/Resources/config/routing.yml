@@ -59,9 +59,11 @@ login_check:
     path:  /login_check
     defaults: { _controller: AcmeMainBundle:Security:loginCheck }
 
-logout:
-    path:  /logout
-    defaults: { _controller: AcmeMainBundle:Security:logout }
+#logout:
+#    path:   /logout
+#    defaults: { _controller: AcmeMainBundle:Security:logout }
+
+    
 admin:
     path:  /admin
     defaults: { _controller: AcmeMainBundle:Default:admin }
